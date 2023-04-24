@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest",
-    "start": "electron .",
+    "start": "vite build && electron .",
     "pack": "electron-builder --dir",
     "distwin": "electron-builder -w --publish=never --ia32"
   },

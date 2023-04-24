@@ -5,7 +5,7 @@ require('module-alias/register')
 const electron = require('electron')
 const {autoUpdater} = require("electron-updater")
 
-const {app, Menu, Tray, BrowserWindow, dialog} = electron
+const {app, Menu, Tray, BrowserWindow, dialog, ipcMain} = electron
 const path = require('path')
 const {spawn} = require('child_process')
 const log = require('electron-log')
@@ -240,8 +240,10 @@ async function createWindow() {
             defaultFontFamily: "serif",
             experimentalFeatures: true,
             nodeIntegration: false,
+            preload: path.join(__dirname, 'preload.js'),
         }
     })
+    ipcMain.handle('ping', () => 'pong')
     win.blur();
     await win.loadURL("about:blank")
     await checkForUpdate(win)
@@ -256,7 +258,7 @@ async function createWindow() {
     //     win.webContents.executeJavaScript('document.body.innerHTML = "Lỗi, bạn mở chrome vào web Tiny.VN Login tạm nhé !<br>Nếu không được thì hay liên hệ hỗ trợ ở fanpage nhé ! <br> Xin lỗi vì sự bất tiện này ạ :("')
     // })
 
-    await win.loadFile('index.html')
+    await win.loadFile('./dist/index.html')
 
     app.on('second-instance', (event, commandLine, workingDirectory) => {
         // Someone tried to run a second instance, we should focus our window.

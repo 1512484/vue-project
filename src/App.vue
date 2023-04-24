@@ -1,6 +1,21 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { useCounterStore } from "@/stores/counter"
 import HelloWorld from './components/HelloWorld.vue'
+import { onMounted } from "vue";
+
+const counterStore = useCounterStore();
+
+onMounted(async () => {
+  console.log(greeting?.node());
+
+  const response = await window.greeting.ping()
+  console.log(response)
+
+  const res = await counterStore.getArticleList();
+
+  console.log({res});
+})
 </script>
 
 <template>
