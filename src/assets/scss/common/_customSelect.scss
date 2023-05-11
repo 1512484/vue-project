@@ -1,0 +1,93 @@
+.custom-select-component {
+    position: relative;
+    * {
+        font-family: "SVN-Avo-Bold", sans-serif;
+        font-weight: 700;
+        font-size: var(--text-sm);
+        line-height: 1;
+        color: #FFFFFF;
+        transition: var(--transition);
+    }
+    select {
+        outline: none;
+        background: transparent;
+        transition: var(--transition);
+        border: 1px solid #283288;
+        border-radius: 5px;
+        height: 30px;
+        padding: 0 9px;
+        padding-right: 22px;
+        cursor: pointer;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        background-image: url("@/assets/images/icons/triangle-down.svg");
+        background-repeat: no-repeat;
+        background-position: right 8px top 50%;
+        background-size: 7px auto;
+        &::-ms-expand {
+            display: none;
+        }
+        option {
+            padding: 10px;
+        }
+    }
+
+    .selected-item {
+        position: relative;
+        transition: var(--transition);
+        border: 1px solid #283288;
+        border-radius: 5px;
+        height: 30px;
+        padding: 0 9px;
+        padding-right: 22px;
+        display: flex;
+        align-items: center;
+        background-image: url("@/assets/images/icons/triangle-down.svg");
+        background-repeat: no-repeat;
+        background-position: right 8px top 50%;
+        background-size: 7px auto;
+        user-select: none;
+        cursor: pointer;
+    }
+
+    .option-menu {
+        position: absolute;
+        top: calc(100% + 20px);
+        // width: 50.66px;
+        min-width: 100%;
+        border: 1px solid #233CA3;
+        background: #283288;
+        border-radius: 5px;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 3;
+        .option {
+            width: 100%;
+            padding: 8px 9px;
+            &:not(:last-of-type) {
+                border-bottom: 1px solid #233CA3;
+            }
+            &:hover {
+                // background: rgb(35, 60, 163, 0.5);
+                background: var(--primary);
+            }
+        }
+    }
+
+    .custom-select {
+        padding: 0;
+        &:focus {
+            .selected-item {
+                border-color: #233CA3;
+            }
+            .option-menu {
+                top: calc(100% + 5px);
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+    }
+}

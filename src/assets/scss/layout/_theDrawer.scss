@@ -1,0 +1,89 @@
+.the-drawer-component {
+    padding: 16px 14px 50px var(--container-padding);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .logo {
+        margin-bottom: 35px;
+        .logo-img {
+            max-width: 36px;
+        }
+        .logo-text {
+            transform: translateY(3px);
+        }
+    }
+    .avatar {
+        --avatar-size: 64px;
+        position: relative;
+        width: var(--avatar-size);
+        min-width: var(--avatar-size);
+        height: 0;
+        padding-bottom: var(--avatar-size);
+        border-radius: 50%;
+        background-color: var(--primary);
+        margin-bottom: 5px;
+    }
+
+    .user-region, .user-id {
+        color: var(--C7);
+    }
+    
+    .remaining-block {
+        width: 146px;
+        margin: 5px 0 42px;
+        .remaining-total {
+            margin-bottom: 2px;
+        }
+    }
+
+    .nav-item-list {
+        flex-grow: 1;
+        .nav-item {
+            padding: 11px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            &.active {
+                background: #233CA3 !important;
+            }
+            &:hover {
+                background: rgb(35, 60, 163, 0.5);
+            }
+        }
+    }
+
+    .recommend-service-list {
+        --service-color: #01F3BC;
+        --icon-color: #08738A;
+        --icon-size: 27px;
+        display: grid;
+        grid-gap: 5px;
+        .service-item {
+            position: relative;
+            padding: 9px 10px;
+            border-radius: 10px;
+            background: linear-gradient(113.18deg, rgba($color: var(--service-color), $alpha: 0.4) 9.47%, rgba($color: var(--service-color), $alpha: 0.088) 86.02%);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+            .plus-icon {
+                width: var(--icon-size);
+                min-width: var(--icon-size);
+                height: var(--icon-size);
+                border-radius: 50%;
+                background: var(--icon-color);
+                margin-left: 10px;
+                transition: var(--transition);
+            }
+            &:hover {
+                background: linear-gradient(113.18deg, rgba($color: var(--service-color), $alpha: 0.5) 9.47%, rgba($color: var(--service-color), $alpha: 0.088) 86.02%);
+                .plus-icon {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}

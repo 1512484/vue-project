@@ -1,0 +1,32 @@
+.the-header-component {
+    padding: 21px 21px 18px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .search-input-component {
+        max-width: 278px;
+    }
+    .right-content {
+        flex-grow: 1;
+        justify-content: flex-end;
+        margin-left: 10px;
+        .logout-btn {
+            --logout-btn-size: 30px;
+            width: var(--logout-btn-size);
+            min-width: var(--logout-btn-size);
+            height: var(--logout-btn-size);
+            border-radius: 50%;
+            background: rgba(151, 125, 255, 0.2);
+            margin-left: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            &:hover {
+                background: rgba(151, 125, 255, 0.4);
+                transform: scale(1.05);
+            }
+        }
+    }
+}

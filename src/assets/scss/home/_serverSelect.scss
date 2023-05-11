@@ -1,0 +1,77 @@
+.server-select-component {
+    .server-list {
+        position: relative;
+        display: flex;
+        overflow: auto;
+        // scroll-behavior: smooth;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .server-item {
+            position: relative;
+            width: 182px;
+            min-width: 182px;
+            background: var(--primary);
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+            * {
+                line-height: 1;
+                user-select: none;
+            }
+            &:not(:last-of-type) {
+                margin-right: 15px;
+            }
+            .flag-img {
+                width: 55px;
+                height: 41px;
+            }
+            .server-info {
+                margin-top: -4px;
+            }
+            .hover-layout {
+                position: absolute;
+                inset: 0;
+                background: rgba(23, 10, 47, 0.8);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                pointer-events: none;
+                transition: var(--transition);
+            }
+            &:hover {
+                .hover-layout {
+                    opacity: 1;
+                    pointer-events: unset;
+                }
+            }
+        }
+    }
+    .left-arrow, .right-arrow {
+        position: absolute;
+        top: 0;
+        width: 91px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        z-index: 2;
+    }
+    .left-arrow {
+        left: 0;
+        padding-left: 22px;
+        background: linear-gradient(-90deg, rgba(13, 31, 106, 0) 22.9%, rgba(13, 31, 106, 0.23) 38.29%, #0D1F6A 60.01%, #0D1F6A 86.9%);
+        img {
+            transform: rotate(180deg);
+        }
+    }
+    .right-arrow {
+        right: 0;
+        padding-right: 22px;
+        justify-content: flex-end;
+        background: linear-gradient(90deg, rgba(13, 31, 106, 0) 22.9%, rgba(13, 31, 106, 0.23) 38.29%, #0D1F6A 60.01%, #0D1F6A 86.9%);
+    }
+}
